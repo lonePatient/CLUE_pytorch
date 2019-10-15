@@ -1,6 +1,8 @@
 # chineseGLUE_pytorch
 
 
+**详细信息见于https://github.com/chineseGLUE/chineseGLUE**
+
 ## 代码目录说明
 ```text
 ├── chineseGLUEdatasets   #　存放数据
