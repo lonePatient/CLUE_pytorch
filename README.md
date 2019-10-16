@@ -47,25 +47,72 @@ python convert_albert_original_tf_checkpoint_to_pytorch.py \
 
 ### Tnews文本分类任务
 
-    | 模型 | 开发集（dev) | 测试集（test) | 训练参数 |
-    | :----:| :----: | :----: | :----: |
-    | | | 	||
+| 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
+| :------- | :---------: | :---------: | :---------: |
+| albert_tiny |  |  | |
+| albert_base |  | | |
+| albert_xlarge |  | | |
+| bert_base |  | | |
+| ernie_base |  | | |
+| xlnet_base |  | | |
+| xlnet_mid |  | | |
+| bert_wwm |  | | |
+| bert_wwm_ext |  | | |
+| roberta_wwm |  | | |
+| robertta_wwm_ext |  | | |
+| roberta_wwm_large_ext |  | | |
 
 ### Xlni自然语言推理
 
-    | 模型 | 开发集（dev) | 测试集（test) | 训练参数 |
-    | :----:| :----: | :----: | :----: |
-    |  | | 	||
+| 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
+| :------- | :---------: | :---------: | :---------: |
+| albert_tiny |  |  | |
+| albert_base |  | | |
+| albert_xlarge |  | | |
+| bert_base |  | | |
+| ernie_base |  | | |
+| xlnet_base |  | | |
+| xlnet_mid |  | | |
+| bert_wwm |  | | |
+| bert_wwm_ext |  | | |
+| roberta_wwm |  | | |
+| robertta_wwm_ext |  | | |
+| roberta_wwm_large_ext |  | | |
 
 ### Lcqmc语义相似度匹配
 
-    | 模型 | 开发集（dev) | 测试集（test) | 训练参数 |
-    | :----:| :----: | :----: | :----: |
-    |  | | 	||
+| 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
+| :------- | :---------: | :---------: | :---------: |
+| albert_tiny |  |  | |
+| albert_base |  | | |
+| albert_xlarge |  | | |
+| bert_base |  | | |
+| ernie_base |  | | |
+| xlnet_base |  | | |
+| xlnet_mid |  | | |
+| bert_wwm |  | | |
+| bert_wwm_ext |  | | |
+| roberta_wwm |  | | |
+| robertta_wwm_ext |  | | |
+| roberta_wwm_large_ext |  | | |
 
 ### Inews 互联网情感分析
 
-    | 模型 | 开发集（dev) | 测试集（test) | 训练参数 |
-    | :----:| :----: | :----: | :----: |
-    |  | | 	||
+| 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
+| :------- | :---------: | :---------: | :---------: |
+| albert_tiny |  |  | |
+| albert_base |  | | |
+| albert_xlarge |  | | |
+| bert_base |  | | |
+| ernie_base |  | | |
+| xlnet_base |  | | |
+| xlnet_mid |  | | |
+| bert_wwm |  | | |
+| bert_wwm_ext |  | | |
+| roberta_wwm |  | | |
+| robertta_wwm_ext |  | | |
+| roberta_wwm_large_ext |  | | |
+
+
+
 
