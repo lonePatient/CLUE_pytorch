@@ -50,7 +50,7 @@ sh run_classifier_inews.sh
 ```
 ### 模型列表
 
-```json
+```
 MODEL_CLASSES = {
     ## bert ernie bert_wwm bert_wwwm_ext
     'bert': (BertConfig, BertForSequenceClassification, BertTokenizer),
