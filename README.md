@@ -72,7 +72,7 @@ MODEL_CLASSES = {
 ```
 **注意**: bert ernie bert_wwm bert_wwwm_ext等模型只是权重不一样，而模型本身主体一样，因此参数`model_type=bert`其余同理。
 
-## 基线结果(正在测试.....)
+## 基线结果
 
 **说明**：目前结果大体上跟tf差不多，但是有+-0.4%上下波动，可能时由于参数不同等原因造成
 
@@ -80,66 +80,33 @@ MODEL_CLASSES = {
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_tiny | 86.89 | 87.02 | |
-| albert_base | 88.42 | 88.26 | |
-| albert_xlarge |  | | |
-| bert_base | 89.8 | 89.77 | |
-| ernie_base |  | | |
-| xlnet_base |  | | |
-| xlnet_mid |  | | |
-| bert_wwm |  | | |
-| bert_wwm_ext | 89.83 | 89.80 | |
-| roberta_wwm |  | | |
-| robertta_wwm_ext |  | | |
-| roberta_wwm_large_ext |  | | |
-
-### Xlni自然语言推理
-
-| 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
-| :------- | :---------: | :---------: | :---------: |
-| albert_tiny |  |  | |
-| albert_base |  | | |
-| albert_xlarge |  | | |
-| bert_base |  | | |
-| ernie_base |  | | |
-| xlnet_base |  | | |
-| xlnet_mid |  | | |
-| bert_wwm |  | | |
-| bert_wwm_ext |  | | |
-| roberta_wwm |  | | |
-| robertta_wwm_ext |  | | |
-| roberta_wwm_large_ext |  | | |
+| albert_tiny | 86.89 | 87.02 | epoch=5,length=128,lr=1e-4 |
+| albert_base | 88.42 | 88.26 | epoch=4,length=128,lr=2e-5 |
+| bert_base | 89.8 | 89.77 | epoch=4,length=128,lr=2e-5 |
+| ernie_base | 89.99 | 89.90 | epoch=4,length=128,lr=2e-5 |
+| xlnet_base | 89.44 | 89.59 | epoch=4,length=128,lr=2e-5 |
+| bert_wwm_ext | 89.83 | 89.80 | epoch=4,length=128,lr=2e-5 |
 
 ### Lcqmc语义相似度匹配
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_tiny |  |  | batch_size=64, length=128, epoch=５,lr=1e-4 |
-| albert_base | 87.8 | 87.1 | |
-| albert_xlarge |  | | |
-| bert_base | 89.4 | 87.2 | |
-| ernie_base | 89.8 | 87.1 | |
-| xlnet_base |  | | |
-| xlnet_mid |  | | |
-| bert_wwm | 89.0 | 87.9 | |
-| bert_wwm_ext | 89.3 | 87.5 | |
-| roberta_wwm |  | | |
-| robertta_wwm_ext |  | | |
+| albert_base | 87.8 | 87.1 | epoch=4,length=128,lr=2e-5 |
+| bert_base | 89.4 | 87.2 | epoch=4,length=128,lr=2e-5 |
+| ernie_base | 89.8 | 87.1 | epoch=4,length=128,lr=2e-5 |
+| bert_wwm | 89.0 | 87.9 | epoch=4,length=128,lr=2e-5 |
+| bert_wwm_ext | 89.3 | 87.5 | epoch=4,length=128,lr=2e-5 |
 
 ### Inews 互联网情感分析
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_tiny |  |  | |
-| albert_base |  | | |
-| albert_xlarge |  | | |
-| bert_base | 85.1 | 84.5 | |
-| ernie_base | 85.9 | 84.7 | |
-| xlnet_base | 85.1 | 84.5 | |
-| bert_wwm | 85.7 | 85.1 | |
-| bert_wwm_ext | 85.4 | 85.8 | |
-| roberta_wwm |  |  | |
-| robertta_wwm_ext | 84.5 | 84.9 | |
+| bert_base | 85.1 | 84.5 | epoch=4,length=512,lr=2e-5 |
+| ernie_base | 85.9 | 84.7 | epoch=4,length=512,lr=2e-5 |
+| xlnet_base | 85.1 | 84.5 | epoch=4,length=512,lr=2e-5 |
+| bert_wwm | 85.7 | 85.1 | epoch=4,length=512,lr=2e-5 |
+| bert_wwm_ext | 85.4 | 85.8 | epoch=4,length=512,lr=2e-5 |
+| robertta_wwm_ext | 84.5 | 84.9 | epoch=4,length=512,lr=2e-5 |
 
 
 
