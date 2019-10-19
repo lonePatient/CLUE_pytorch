@@ -40,7 +40,7 @@ from processors import glue_output_modes as output_modes
 
 from processors import glue_processors as processors
 from processors import glue_convert_examples_to_features as convert_examples_to_features
-from processors import collate_fn
+from processors import collate_fn,xlnet_collate_fn
 from tools.common import seed_everything
 from tools.common import init_logger,logger
 from tools.progressbar import ProgressBar
@@ -60,7 +60,7 @@ def train(args, train_dataset, model, tokenizer):
     """ Train the model """
     args.train_batch_size = args.per_gpu_train_batch_size * max(1, args.n_gpu)
     train_sampler = RandomSampler(train_dataset) if args.local_rank == -1 else DistributedSampler(train_dataset)
-    train_dataloader = DataLoader(train_dataset, sampler=train_sampler, batch_size=args.train_batch_size,collate_fn=collate_fn)
+    train_dataloader = DataLoader(train_dataset, sampler=train_sampler, batch_size=args.train_batch_size,collate_fn=xlnet_collate_fn if args.model_type in ['xlnet'] else collate_fn)
 
     if args.max_steps > 0:
         t_total = args.max_steps
@@ -175,7 +175,7 @@ def evaluate(args, model, tokenizer, prefix=""):
         args.eval_batch_size = args.per_gpu_eval_batch_size * max(1, args.n_gpu)
         # Note that DistributedSampler samples randomly
         eval_sampler = SequentialSampler(eval_dataset) if args.local_rank == -1 else DistributedSampler(eval_dataset)
-        eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.eval_batch_size,collate_fn=collate_fn)
+        eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.eval_batch_size,collate_fn=xlnet_collate_fn if args.model_type in ['xlnet'] else collate_fn)
 
         # Eval!
         logger.info("***** Running evaluation {} *****".format(prefix))
@@ -235,7 +235,7 @@ def predict(args, model, tokenizer, prefix=""):
         args.pred_batch_size = args.per_gpu_eval_batch_size * max(1, args.n_gpu)
         # Note that DistributedSampler samples randomly
         pred_sampler = SequentialSampler(pred_dataset) if args.local_rank == -1 else DistributedSampler(pred_dataset)
-        pred_dataloader = DataLoader(pred_dataset, sampler=pred_sampler, batch_size=args.pred_batch_size,collate_fn=collate_fn)
+        pred_dataloader = DataLoader(pred_dataset, sampler=pred_sampler, batch_size=args.pred_batch_size,collate_fn=xlnet_collate_fn if args.model_type in ['xlnet'] else collate_fn)
 
         logger.info("***** Running prediction {} *****".format(prefix))
         logger.info("  Num examples = %d", len(pred_dataset))
@@ -305,9 +305,9 @@ def load_and_cache_examples(args, task, tokenizer, data_type='train'):
                                                 label_list=label_list,
                                                 max_length=args.max_seq_length,
                                                 output_mode=output_mode,
-                                                pad_on_left=bool('xlnet' in args.model_type),                 # pad on the left for xlnet
+                                                pad_on_left=bool(args.model_type in ['xlnet']),                 # pad on the left for xlnet
                                                 pad_token=tokenizer.convert_tokens_to_ids([tokenizer.pad_token])[0],
-                                                pad_token_segment_id=4 if 'xlnet' in args.model_type else 0,
+                                                pad_token_segment_id=4 if args.model_type in ['xlnet'] else 0,
         )
         if args.local_rank in [-1, 0]:
             logger.info("Saving features into cached file %s", cached_features_file)
@@ -371,7 +371,7 @@ def main():
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
     parser.add_argument("--learning_rate", default=5e-5, type=float,
                         help="The initial learning rate for Adam.")
-    parser.add_argument("--weight_decay", default=0.0, type=float,
+    parser.add_argument("--weight_decay", default=0.01, type=float,
                         help="Weight deay if we apply some.")
     parser.add_argument("--adam_epsilon", default=1e-8, type=float,
                         help="Epsilon for Adam optimizer.")
@@ -508,7 +508,6 @@ def main():
         for checkpoint in checkpoints:
             global_step = checkpoint.split('-')[-1] if len(checkpoints) > 1 else ""
             prefix = checkpoint.split('/')[-1] if checkpoint.find('checkpoint') != -1 else ""
-            
             model = model_class.from_pretrained(checkpoint)
             model.to(args.device)
             result = evaluate(args, model, tokenizer, prefix=prefix)

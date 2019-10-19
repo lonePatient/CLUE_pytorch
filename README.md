@@ -29,9 +29,17 @@
 |  └── modeling_bert.py
 |  └── ...
 ├── convert_albert_original_tf_checkpoint_to_pytorch.py　#　模型文件转换
-├── run_chineseglue.py       # 主程序
+├── run_classifier.py       # 主程序
 ├── run_classifier_inews.sh   #　任务运行脚本
 ```
+### 依赖模块
+
+- pytorch=1.1.0
+- boto3=1.9
+- regex
+- sacremoses
+- sentencepiece
+
 ### 运行
 
 1. 若下载对应tf模型权重，则运行转换脚本，比如转换`albert_base_tf`:
@@ -72,15 +80,15 @@ MODEL_CLASSES = {
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_tiny |  |  | |
-| albert_base |  | | |
+| albert_tiny | 86.89 | 87.02 | |
+| albert_base | 88.42 | 88.26 | |
 | albert_xlarge |  | | |
-| bert_base |  | | |
+| bert_base | 89.8 | 89.77 | |
 | ernie_base |  | | |
 | xlnet_base |  | | |
 | xlnet_mid |  | | |
 | bert_wwm |  | | |
-| bert_wwm_ext |  | | |
+| bert_wwm_ext | 89.83 | 89.80 | |
 | roberta_wwm |  | | |
 | robertta_wwm_ext |  | | |
 | roberta_wwm_large_ext |  | | |
@@ -106,18 +114,17 @@ MODEL_CLASSES = {
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_tiny |  |  | |
-| albert_base |  | | |
+| albert_tiny |  |  | batch_size=64, length=128, epoch=５,lr=1e-4 |
+| albert_base | 87.8 | 87.1 | |
 | albert_xlarge |  | | |
-| bert_base |  | | |
-| ernie_base |  | | |
+| bert_base | 89.4 | 87.2 | |
+| ernie_base | 89.8 | 87.1 | |
 | xlnet_base |  | | |
 | xlnet_mid |  | | |
-| bert_wwm |  | | |
-| bert_wwm_ext |  | | |
+| bert_wwm | 89.0 | 87.9 | |
+| bert_wwm_ext | 89.3 | 87.5 | |
 | roberta_wwm |  | | |
 | robertta_wwm_ext |  | | |
-| roberta_wwm_large_ext |  | | |
 
 ### Inews 互联网情感分析
 
@@ -126,15 +133,13 @@ MODEL_CLASSES = {
 | albert_tiny |  |  | |
 | albert_base |  | | |
 | albert_xlarge |  | | |
-| bert_base |  | | |
-| ernie_base |  | | |
-| xlnet_base |  | | |
-| xlnet_mid |  | | |
-| bert_wwm |  | | |
-| bert_wwm_ext |  | | |
-| roberta_wwm |  | | |
-| robertta_wwm_ext |  | | |
-| roberta_wwm_large_ext |  | | |
+| bert_base | 85.1 | 84.5 | |
+| ernie_base | 85.9 | 84.7 | |
+| xlnet_base | 85.1 | 84.5 | |
+| bert_wwm | 85.7 | 85.1 | |
+| bert_wwm_ext | 85.4 | 85.8 | |
+| roberta_wwm |  |  | |
+| robertta_wwm_ext | 84.5 | 84.9 | |
 
 
 
