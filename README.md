@@ -74,14 +74,18 @@ MODEL_CLASSES = {
 
 ## 基线结果
 
-**说明**：目前结果大体上跟tf差不多，但是有+-0.4%上下波动，可能时由于参数不同等原因造成
+**说明**：
+
+1. 目前结果大体上跟tf差不多，但是有+-0.4%上下波动，可能时由于参数不同等原因造成
+
+2. 增加collate_fn，对每一个batch进行动态长度padding
 
 ### Tnews文本分类任务
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
 | albert_tiny | 86.89 | 87.02 | epoch=5,length=128,lr=1e-4 |
-| albert_base | 88.42 | 88.26 | epoch=4,length=128,lr=2e-5 |
+| albert_base | 88.42 | 88.26 | epoch=5,length=128,lr=1e-4 |
 | bert_base | 89.8 | 89.77 | epoch=4,length=128,lr=2e-5 |
 | ernie_base | 89.99 | 89.90 | epoch=4,length=128,lr=2e-5 |
 | xlnet_base | 89.44 | 89.59 | epoch=4,length=128,lr=2e-5 |
@@ -91,11 +95,11 @@ MODEL_CLASSES = {
 
 | 模型 | 开发集(Dev) | 测试集(Test) | 训练参数 |
 | :------- | :---------: | :---------: | :---------: |
-| albert_base | 87.8 | 87.1 | epoch=4,length=128,lr=2e-5 |
-| bert_base | 89.4 | 87.2 | epoch=4,length=128,lr=2e-5 |
+| albert_base | 87.8 | 86.6 | epoch=5,length=128,lr=1e-4 |
+| bert_base | 89.4 | 86.9 | epoch=4,length=128,lr=2e-5 |
 | ernie_base | 89.8 | 87.1 | epoch=4,length=128,lr=2e-5 |
-| bert_wwm | 89.0 | 87.9 | epoch=4,length=128,lr=2e-5 |
-| bert_wwm_ext | 89.3 | 87.5 | epoch=4,length=128,lr=2e-5 |
+| bert_wwm | 89.0 | 87.2 | epoch=4,length=128,lr=2e-5 |
+| bert_wwm_ext | 89.3 | 87.1 | epoch=4,length=128,lr=2e-5 |
 
 ### Inews 互联网情感分析
 

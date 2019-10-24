@@ -303,7 +303,7 @@ class AlbertLMPredictionHead(nn.Module):
         # The output weights are the same as the input embeddings, but there is
         # an output-only bias for each token.
         self.project_layer = nn.Linear(config.hidden_size, config.embedding_size, bias=False)
-        self.decoder = nn.Linear(config.hidden_size,
+        self.decoder = nn.Linear(config.embedding_size,
                                  config.vocab_size,
                                  bias=False)
 
@@ -795,7 +795,7 @@ class AlbertForSequenceClassification(AlbertPreTrainedModel):
         self.num_labels = config.num_labels
 
         self.bert = AlbertModel(config)
-        self.dropout = nn.Dropout(0.0)
+        self.dropout = nn.Dropout(config.hidden_dropout_prob)
         self.classifier = nn.Linear(config.hidden_size, self.config.num_labels)
 
         self.init_weights()
