@@ -124,7 +124,7 @@ MODEL_CLASSES = {
 
 ### 结果
 
-当前按照https://github.com/CLUEbenchmark/CLUE，提供的参数，除了**COPA**任务无法复现，其余任务基本保持一致。
+当前按照https://github.com/CLUEbenchmark/CLUE  提供的参数，除了**COPA**任务无法复现，其余任务基本保持一致。
 
 
 
