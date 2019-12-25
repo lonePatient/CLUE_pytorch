@@ -133,22 +133,6 @@ class PreTrainedModel(nn.Module):
                 0
             )
 
-    def _tie_or_clone_data(self, first_module, second_module):
-        """ Tie or clone module weights depending of weither we are using TorchScript or not
-        """
-
-        if self.config.torchscript:
-            first_module.weight.data = nn.Parameter(second_module.weight.data.t().clone())
-        else:
-            first_module.weight.data = second_module.weight.data.t()
-        if hasattr(first_module, 'bias') and first_module.bias is not None:
-            first_module.bias.data = torch.nn.functional.pad(
-                first_module.bias.data,
-                (0, first_module.weight.shape[0] - first_module.bias.shape[0]),
-                'constant',
-                0
-            )
-
     def resize_token_embeddings(self, new_num_tokens=None):
         """ Resize input token embeddings matrix of the model if new_num_tokens != config.vocab_size.
         Take care of tying weights embeddings afterwards if the model class has a `tie_weights()` method.
