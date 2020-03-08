@@ -137,7 +137,7 @@ TASK_NAME="copa"
 
 python run_classifier.py \
   --model_type=bert \
-  --model_name_or_path=$BERT_BASE_DIR \
+  --model_name_or_path=voidful/albert_chinese_tiny \
   --task_name=$TASK_NAME \
   --do_predict \
   --predict_checkpoints=100 \
