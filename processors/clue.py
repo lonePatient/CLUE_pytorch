@@ -76,9 +76,10 @@ def clue_convert_examples_to_features(examples, tokenizer,
     label_map = {label: i for i, label in enumerate(label_list)}
 
     features = []
+    len_examples = len(examples)
     for (ex_index, example) in enumerate(examples):
         if ex_index % 10000 == 0:
-            logger.info("Writing example %d" % (ex_index))
+            logger.info("Writing example %d/%d" % (ex_index, len_examples))
 
         inputs = tokenizer.encode_plus(
             example.text_a,
