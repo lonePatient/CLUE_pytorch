@@ -1,4 +1,4 @@
-# CLUE_pytorch
+16CLUE_pytorch
 
 中文语言理解测评基准(Language Understanding Evaluation benchmark for Chinese)
 
@@ -7,6 +7,28 @@
 ## 更新
 
 * **2020-03-08**: 模型加载使用[Huggingface-Transformers](https://github.com/huggingface/transformers)
+
+## 模型列表
+
+|      model type       |                      model_name_or_path                      |
+| :-------------------: | :----------------------------------------------------------: |
+|        albert         | [voidful/albert_chinese_base](https://huggingface.co/voidful/albert_chinese_base) |
+|        albert         | [voidful/albert_chinese_larg](https://huggingface.co/voidful/albert_chinese_large) |
+|        albert         | [`voidful/albert_chinese_small`](https://huggingface.co/voidful/albert_chinese_small) |
+|        albert         | [`voidful/albert_chinese_tiny`](https://huggingface.co/voidful/albert_chinese_tiny) |
+|        albert         | [`voidful/albert_chinese_xlarge`](https://huggingface.co/voidful/albert_chinese_xlarge) |
+|        albert         | [`voidful/albert_chinese_xxlarge`](https://huggingface.co/voidful/albert_chinese_xxlarge) |
+|         bert          | [`bert-base-chinese`](https://huggingface.co/bert-base-chinese) |
+|     bert-wwm-ext      | [`hfl/chinese-bert-wwm-ext`](https://huggingface.co/hfl/chinese-bert-wwm-ext) |
+|       bert-wwm        | [`hfl/chinese-bert-wwm`](https://huggingface.co/hfl/chinese-bert-wwm) |
+| roberta-wwm-ext-large | [`hfl/chinese-roberta-wwm-ext-large`](https://huggingface.co/hfl/chinese-roberta-wwm-ext-large) |
+|    roberta-wwm-ext    | [`hfl/chinese-roberta-wwm-ext`](https://huggingface.co/hfl/chinese-roberta-wwm-ext) |
+|      xlnet-base       | [`hfl/chinese-xlnet-base`](https://huggingface.co/hfl/chinese-xlnet-base) |
+|       xlnet-mid       | [`hfl/chinese-xlnet-mid`](https://huggingface.co/hfl/chinese-xlnet-mid) |
+|         rbt3          |        [`hfl/rbt3`](https://huggingface.co/hfl/rbt3)         |
+|         rbt3          |       [`hfl/rbtl3`](https://huggingface.co/hfl/rbtl3)        |
+
+
 
 ## 代码目录说明
 
