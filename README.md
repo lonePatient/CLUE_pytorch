@@ -27,8 +27,12 @@
 |       xlnet-mid       | [`hfl/chinese-xlnet-mid`](https://huggingface.co/hfl/chinese-xlnet-mid) |
 |         rbt3          |        [`hfl/rbt3`](https://huggingface.co/hfl/rbt3)         |
 |         rbt3          |       [`hfl/rbtl3`](https://huggingface.co/hfl/rbtl3)        |
-
-
+| **RoBERTa-tiny-clue**      | [`clue/roberta_chinese_clue_tiny`](https://huggingface.co/clue/roberta_chinese_clue_tiny) |
+| **RoBERTa-tiny-pair**      | [`clue/roberta_chinese_pair_tiny`](https://huggingface.co/clue/roberta_chinese_pair_tiny) |
+| **RoBERTa-tiny3L768-clue** | [`clue/roberta_chinese_3L768_clue_tiny`](https://huggingface.co/clue/roberta_chinese_3L768_clue_tiny) |
+| **RoBERTa-tiny3L312-clue** | [`clue/roberta_chinese_3L312_clue_tiny`](https://huggingface.co/clue/roberta_chinese_3L312_clue_tiny) |
+| **RoBERTa-large-clue**     | [`clue/roberta_chinese_clue_large`](https://huggingface.co/clue/roberta_chinese_clue_large) |
+| **RoBERTa-large-pair**     | [`clue/roberta_chinese_pair_large`](https://huggingface.co/clue/roberta_chinese_pair_large) |
 
 ## 代码目录说明
 
