@@ -6,7 +6,6 @@ import glob
 import logging
 import os
 import json
-import copy
 import numpy as np
 import torch
 from torch.nn import MSELoss
@@ -18,23 +17,9 @@ from transformers import (
     AdamW,
     AlbertConfig,
     AlbertForSequenceClassification,
-    AlbertTokenizer,
     BertConfig,
     BertForSequenceClassification,
     BertTokenizer,
-    DistilBertConfig,
-    FlaubertConfig,
-    FlaubertForSequenceClassification,
-    FlaubertTokenizer,
-    RobertaConfig,
-    RobertaForSequenceClassification,
-    RobertaTokenizer,
-    XLMConfig,
-    XLMForSequenceClassification,
-    XLMRobertaConfig,
-    XLMRobertaForSequenceClassification,
-    XLMRobertaTokenizer,
-    XLMTokenizer,
     XLNetConfig,
     XLNetForSequenceClassification,
     XLNetTokenizer,
@@ -60,12 +45,7 @@ ALL_MODELS = sum(
         for conf in (
             BertConfig,
             XLNetConfig,
-            XLMConfig,
-            RobertaConfig,
-            DistilBertConfig,
             AlbertConfig,
-            XLMRobertaConfig,
-            FlaubertConfig,
         )
     ),
     (),
@@ -73,6 +53,7 @@ ALL_MODELS = sum(
 
 MODEL_CLASSES = {
     "bert": (BertConfig, BertForSequenceClassification, BertTokenizer),
+    "ernie": (BertConfig, BertForSequenceClassification, BertTokenizer),
     "xlnet": (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer),
     "roberta": (BertConfig, BertForSequenceClassification, BertTokenizer),
     "albert": (AlbertConfig, AlbertForSequenceClassification, BertTokenizer),

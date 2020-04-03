@@ -101,7 +101,7 @@ sh run_classifier_tnews.sh
 具体运行方式如下：
 ```python
 CURRENT_DIR=`pwd`
-export GLUE_DIR=$CURRENT_DIR/CLUEdatasets
+export CLUE_DIR=$CURRENT_DIR/CLUEdatasets
 export OUTPUR_DIR=$CURRENT_DIR/outputs
 TASK_NAME="iflytek"
 
@@ -112,7 +112,7 @@ python run_classifier.py \
   --do_train \
   --do_lower_case \
   --evaluate_during_training \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
@@ -127,7 +127,7 @@ python run_classifier.py \
 **注意**:
 
 > model_name_or_path=voidful/albert_chinese_tiny默认自动下载albert_chinese_tiny
->当前之支持google版本的中文albert模型
+>当前只支持google版本的中文albert模型
 
 
 **4. 评估**
@@ -135,7 +135,7 @@ python run_classifier.py \
 当前默认使用最后一个checkpoint模型作为评估模型，你也可以指定`--predict_checkpoints`参数进行对应的checkpoint进行评估，比如：
 ```python
 CURRENT_DIR=`pwd`
-export GLUE_DIR=$CURRENT_DIR/CLUEdatasets
+export CLUE_DIR=$CURRENT_DIR/CLUEdatasets
 export OUTPUR_DIR=$CURRENT_DIR/outputs
 TASK_NAME="copa"
 
@@ -146,7 +146,7 @@ python run_classifier.py \
   --do_predict \
   --predict_checkpoints=100 \
   --do_lower_case \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
@@ -162,14 +162,18 @@ python run_classifier.py \
 ### 模型列表
 ```
     "bert": (BertConfig, BertForSequenceClassification, BertTokenizer),
+    "ernie": (BertConfig, BertForSequenceClassification, BertTokenizer),
     "xlnet": (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer),
     "roberta": (BertConfig, BertForSequenceClassification, BertTokenizer),
     "albert": (AlbertConfig, AlbertForSequenceClassification, BertTokenizer),
 ```
-**注意**: 
+### 结果
 
-1. bert ernie bert_wwm bert_wwwm_ext等模型只是权重不一样，而模型本身主体一样，因此参数`model_type=bert`其余同理。
+CLUEWSC2020: WSC Winograd模式挑战中文版,新版2020-03-25发布 [CLUEWSC2020数据集下载](https://storage.googleapis.com/cluebenchmark/tasks/cluewsc2020_public.zip)
 
+| 模型 | 开发集(Dev) |
+| :------- | :---------: |
+| bert_base | 79.94 |
 
 
 

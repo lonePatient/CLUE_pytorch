@@ -1,5 +1,5 @@
 CURRENT_DIR=`pwd`
-export GLUE_DIR=$CURRENT_DIR/CLUEdatasets
+export CLUE_DIR=$CURRENT_DIR/CLUEdatasets
 export OUTPUR_DIR=$CURRENT_DIR/outputs
 TASK_NAME="afqmc"
 
@@ -10,7 +10,7 @@ python run_classifier.py \
   --do_train \
   --do_lower_case \
   --evaluate_during_training \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
@@ -29,7 +29,7 @@ python run_classifier.py \
   --do_train \
   --do_lower_case \
   --evaluate_during_training \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
@@ -48,7 +48,7 @@ python run_classifier.py \
   --do_train \
   --do_lower_case \
   --evaluate_during_training \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
@@ -67,7 +67,7 @@ python run_classifier.py \
   --do_train \
   --do_lower_case \
   --evaluate_during_training \
-  --data_dir=$GLUE_DIR/${TASK_NAME}/ \
+  --data_dir=$CLUE_DIR/${TASK_NAME}/ \
   --max_seq_length=128 \
   --per_gpu_train_batch_size=16 \
   --per_gpu_eval_batch_size=16 \
